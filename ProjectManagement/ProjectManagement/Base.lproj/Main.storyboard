@@ -29,6 +29,47 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="o7d-yg-YdW">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQn-cA-XuU">
+                                            <rect key="frame" x="0.0" y="603" width="375" height="44"/>
+                                            <items>
+                                                <barButtonItem title="Home" id="dUT-XI-Ggy"/>
+                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="Icc-H1-Ep7"/>
+                                                <barButtonItem title="Item" systemItem="add" id="ym5-9e-WZY"/>
+                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="fVS-SL-Y0z"/>
+                                                <barButtonItem title="Profile" id="0Zo-3t-tB7"/>
+                                            </items>
+                                        </toolbar>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pvo-w5-Wgq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HJ5-wW-lH9">
+                                                <size key="itemSize" width="182" height="262"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="hwV-1t-ozT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="182" height="262"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="262"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </view>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="nQn-cA-XuU" secondAttribute="bottom" id="1Lr-FI-9o7"/>
+                                        <constraint firstItem="nQn-cA-XuU" firstAttribute="leading" secondItem="o7d-yg-YdW" secondAttribute="leading" id="3qc-yd-3iU"/>
+                                        <constraint firstAttribute="trailing" secondItem="nQn-cA-XuU" secondAttribute="trailing" id="Xgy-Wa-qlu"/>
+                                        <constraint firstItem="pvo-w5-Wgq" firstAttribute="top" secondItem="o7d-yg-YdW" secondAttribute="top" id="Z9z-38-Be9"/>
+                                        <constraint firstItem="nQn-cA-XuU" firstAttribute="top" secondItem="pvo-w5-Wgq" secondAttribute="bottom" id="ZcO-Pp-sPN"/>
+                                        <constraint firstAttribute="trailing" secondItem="pvo-w5-Wgq" secondAttribute="trailing" id="qPH-TQ-uYT"/>
+                                        <constraint firstItem="pvo-w5-Wgq" firstAttribute="leading" secondItem="o7d-yg-YdW" secondAttribute="leading" id="y17-ni-L4m"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
