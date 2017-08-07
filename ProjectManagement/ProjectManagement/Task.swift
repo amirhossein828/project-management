@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Task {
-    var nameOfTask : String
-    var status : TaskStatus
-    var startDate  :Date
-    var finishDate : Date?
-    var duration : Double? {
+class Task : Object{
+    dynamic var taskId : String = UUID().uuidString
+    dynamic var nameOfTask : String = ""
+     var status : TaskStatus = .TODO
+    dynamic var startDate  :Date = Date()
+    dynamic var finishDate : Date?
+     var duration : Double? {
         get {
             var timeDifference : Double? = nil
             if let finish = finishDate {
@@ -22,16 +24,15 @@ class Task {
             return timeDifference
         }
     }
-    
-    // initialize with name and current date and todo status
-    init(name : String) {
-        self.nameOfTask = name
-        self.status = .TODO
-        self.startDate = Date()
+
+    override class func primaryKey() -> String {
+        return "taskId"
     }
+    
+
 }
 
 // status of task
-enum TaskStatus {
+enum TaskStatus  {
     case TODO,INPROGRESS,DONE
 }
