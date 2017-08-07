@@ -289,12 +289,21 @@
                                                     <rect key="frame" x="0.0" y="168" width="375" height="379"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="91I-yQ-agt">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="OPs-kC-iZ9" style="IBUITableViewCellStyleDefault" id="91I-yQ-agt">
                                                             <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="91I-yQ-agt" id="U9r-nT-IfK">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OPs-kC-iZ9">
+                                                                        <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
                                                             </tableViewCellContentView>
                                                         </tableViewCell>
                                                     </prototypes>
@@ -340,6 +349,7 @@
                         <outlet property="finishingdateField" destination="lB7-Tp-o1g" id="iAY-zb-4h3"/>
                         <outlet property="nameOfProjectField" destination="Cpb-Rb-bzE" id="acC-9P-tme"/>
                         <outlet property="startingdateField" destination="go6-BC-C79" id="1ws-2V-TcX"/>
+                        <outlet property="tableView" destination="ptr-hH-TSc" id="DiX-BU-QHE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2c-d0-dkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
