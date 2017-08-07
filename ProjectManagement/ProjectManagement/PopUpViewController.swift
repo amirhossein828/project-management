@@ -10,10 +10,13 @@ import UIKit
 
 class PopUpViewController: UIViewController {
     
-    
+    //MARK: - Outlets
     @IBOutlet weak var popUpView: UIView!
-
     @IBOutlet weak var nameOfTaskField: UITextField!
+    
+    //MARK: - Properties
+    weak var delegate : TaskPopUpDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // make the corner of view radius
@@ -25,11 +28,17 @@ class PopUpViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    
+    //MARK: - actions
     @IBAction func doneButton(_ sender: UIButton) {
+        let task = Task()
+        guard let name = self.nameOfTaskField.text else { return  }
+        task.nameOfTask = name
+        self.delegate?.upDateProjectTask(newTask: task)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func closeButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 
  
