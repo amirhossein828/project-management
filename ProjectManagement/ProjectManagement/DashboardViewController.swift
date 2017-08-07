@@ -13,6 +13,12 @@ import RealmSwift
 private let reuseIdentifier = "Cell"
 
 class DashboardViewController: UIViewController {
+    
+    //MARK: - Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    //MARK: - Properties
+    var projectArray : Results<Project>? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +31,9 @@ class DashboardViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         readData(Project.self, predicate: nil) { (response : Results<Project>) in
             print(response)
+            self.projectArray = response
+            self.collectionView.reloadData()
+            
         }
     }
     
@@ -39,20 +48,18 @@ extension DashboardViewController : UICollectionViewDelegate, UICollectionViewDa
     // MARK: UICollectionViewDataSource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 8
+        return self.projectArray?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DashboardCollectionViewCell
+        cell.nameOfProjectLabel.text = self.projectArray?[indexPath.row].name ?? ""
         
-        // Configure the cell
         
         return cell
     }
