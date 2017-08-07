@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 // convert string to date
  func dateFromString(_ dateAsString: String?) -> Date? {
     guard let string = dateAsString else { return nil }
@@ -26,3 +27,6 @@ import Foundation
     let val = dateformatter.string(from: date)
     return val
 }
+
+
+

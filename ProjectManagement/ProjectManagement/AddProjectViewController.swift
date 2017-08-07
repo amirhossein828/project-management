@@ -20,6 +20,8 @@ class AddProjectViewController: UIViewController {
     //MARK: - Properties
     let project = Project()
     var taskArray = [Task]()
+    var datePickerStart : UIDatePicker! = nil
+    var datePickerFinish : UIDatePicker! = nil
     
     //MARK: - actions
     @IBAction func doneButoon(_ sender: UIBarButtonItem) {
@@ -40,12 +42,28 @@ class AddProjectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // table view delagate and datasource
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        // make datepickeres
+        datePickerStart = UIDatePicker(textField: startingdateField, target: self, action2: #selector(donePressedStart))
+        datePickerFinish = UIDatePicker(textField: finishingdateField, target: self, action2: #selector(donePressedFinish))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // get called when startTextField push
+    func donePressedStart(){
+        self.startingdateField.text = dateToString(datePickerStart.date)
+        self.startingdateField.endEditing(true)
+    }
+    
+    // get called when finishTextField push
+    func donePressedFinish(){
+        self.finishingdateField.text = dateToString(datePickerFinish.date)
+        self.finishingdateField.endEditing(true)
     }
     
 
@@ -56,6 +74,7 @@ class AddProjectViewController: UIViewController {
 extension AddProjectViewController : TaskPopUpDelegate {
     func upDateProjectTask(newTask: Task) {
         self.taskArray.append(newTask)
+        self.project.tasks.append(newTask)
         self.tableView.reloadData()
     }
     
