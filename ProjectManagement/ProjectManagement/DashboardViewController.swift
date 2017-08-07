@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RealmSwift
+
 
 private let reuseIdentifier = "Cell"
 
@@ -19,12 +21,19 @@ class DashboardViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    // read the data from database when come back from add project and after viewDidLoad
+    override func viewDidAppear(_ animated: Bool) {
+        readData(Project.self, predicate: nil) { (response : Results<Project>) in
+            print(response)
+        }
+    }
     
   
 
 
 }
 
+// configure collection view
 extension DashboardViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     // MARK: UICollectionViewDataSource
