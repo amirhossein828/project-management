@@ -7,17 +7,20 @@
 //
 
 import Foundation
+import RealmSwift
+import ObjectMapper
 
-class Project {
-    var name : String
-    var startingDate : Date
-    var finishingDate : Date
-    var tasks : [Task]?
+
+
+class Project : Object {
+    dynamic var projectId : String = UUID().uuidString
+    dynamic var name : String = ""
+    dynamic var startingDate : Date?
+    dynamic var finishingDate : Date?
+    var tasks = List<Task>()
     
-    init(nameOfProject : String , start  : Date , finish : Date) {
-        self.name = nameOfProject
-        self.startingDate = start
-        self.finishingDate = finish
+    override class func primaryKey() -> String {
+        return "projectId"
     }
-   
+    
 }
