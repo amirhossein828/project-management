@@ -30,11 +30,13 @@ class DetailViewController: UIViewController {
             })
             // chow inprogressViewController
         } else if sender.selectedSegmentIndex == 1 {
+            inistantiateContainerView(withNumberInArray: 1)
             UIView.animate(withDuration: 0.5, animations: {
                 self.showViewContainer(withName: self.inProgressView)
             })
             // show doneViewController
         }else {
+            inistantiateContainerView(withNumberInArray: 2)
             UIView.animate(withDuration: 0.5, animations: {
                 self.showViewContainer(withName: self.doneView)
             })
