@@ -9,15 +9,13 @@
 import UIKit
 
 class InProgressTableViewController: UITableViewController {
+    
+    var projectFromDashboardDetail : Project? = nil
+    var taskToDo = [Task]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +27,34 @@ class InProgressTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.taskToDo.count
+    }
+    
+    // update table view when this view controller get chosen
+    func updateTable(){
+        let tasks = self.projectFromDashboardDetail?.tasks
+        for task in tasks! {
+            if task.status == TaskStatus.INPROGRESS.rawValue {
+                taskToDo.append(task)
+            }
+        }
+        tableView.reloadData()
+        
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        cell.textLabel?.text = self.taskToDo[indexPath.row].nameOfTask
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
