@@ -544,6 +544,9 @@
                                             <rect key="frame" x="274" y="6" width="93" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="GoInProgress"/>
+                                            <connections>
+                                                <action selector="changeStutusToInProgress:" destination="bFV-bz-QqQ" eventType="touchUpInside" id="kM8-P3-vdC"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aef-Hx-c64">
                                             <rect key="frame" x="8" y="11" width="42" height="21"/>
