@@ -30,9 +30,9 @@ class Project : Object {
         var numberOfInProgress = 0
         var numberofDone = 0
         for task in tasks {
-            if task.status == .TODO {
+            if task.status == TaskStatus.TODO.rawValue {
                 numberOfToDo += 1
-            }else if task.status == .INPROGRESS {
+            }else if task.status == TaskStatus.INPROGRESS.rawValue {
                 numberOfInProgress += 1
             }else {
                 numberofDone += 1
