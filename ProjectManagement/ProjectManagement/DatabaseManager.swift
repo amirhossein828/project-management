@@ -20,6 +20,7 @@ public func saveData<T:Object>(_ object: T) {
     let realm = try! Realm()
     try! realm.write {
         realm.add(object)
+        
     }
 }
 
@@ -71,4 +72,27 @@ public func deleteAll() {
         
     }
     
+}
+
+// update realm database
+public func updateData<T:Object>(_ object: T) {
+    let realm = try! Realm()
+    try! realm.write {
+    }
+}
+
+// update project name
+func updateProject<T:Object>(_ object: T,forProjectId : String,projectName : String ) {
+    let realm = try! Realm()
+    try! realm.write {
+        realm.create(Project.self, value: ["projectId":forProjectId,"name" : projectName ], update: true)
+    }
+}
+
+// update task status
+func updateTaskStatus<T:Object>(_ object: T,forTaskId : String,taskStatus : String ) {
+    let realm = try! Realm()
+    try! realm.write {
+        realm.create(Task.self, value: ["taskId": forTaskId,"status" : taskStatus ], update: true)
+    }
 }
