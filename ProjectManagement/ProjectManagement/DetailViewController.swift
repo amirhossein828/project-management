@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DetailViewController: UIViewController {
     
@@ -19,6 +20,7 @@ class DetailViewController: UIViewController {
     //MARK: - Properties
     var projectFromDashboard : Project? = nil
     
+
     // Action : segmented control to go between container view controllers
     @IBAction func changeContainerViews(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
