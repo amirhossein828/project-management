@@ -59,7 +59,12 @@ extension DashboardViewController : UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DashboardCollectionViewCell
         cell.nameOfProjectLabel.text = self.projectArray?[indexPath.row].name ?? ""
-        
+        let numberOfToDo = self.projectArray?[indexPath.row].calculateNumberOfToDoInProgressDoneTasks()[0]
+        cell.toDoLabel.text = String(numberOfToDo!)
+        let numberOfInProgress = self.projectArray?[indexPath.row].calculateNumberOfToDoInProgressDoneTasks()[1]
+        cell.inProgressLabel.text = String(numberOfInProgress!)
+        let numberOfDone = self.projectArray?[indexPath.row].calculateNumberOfToDoInProgressDoneTasks()[2]
+        cell.doneLabel.text = String(numberOfDone!)
         
         return cell
     }
