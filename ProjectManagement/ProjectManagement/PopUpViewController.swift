@@ -33,6 +33,8 @@ class PopUpViewController: UIViewController {
         let task = Task()
         guard let name = self.nameOfTaskField.text else { return  }
         task.nameOfTask = name
+        task.status = TaskStatus.TODO.rawValue
+        print(task.status)
         self.delegate?.upDateProjectTask(newTask: task)
         dismiss(animated: true, completion: nil)
     }
