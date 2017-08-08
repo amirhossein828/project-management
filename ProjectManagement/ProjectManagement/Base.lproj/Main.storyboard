@@ -10,6 +10,63 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="wJo-KJ-P3h">
+            <objects>
+                <viewController id="9I6-xy-yFX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WMk-c7-Y2F"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Fy-FL-J1T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GgF-jA-xur">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mj-i0-4M9">
+                                <rect key="frame" x="166" y="40" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Qs-1D-Wtm">
+                                <rect key="frame" x="94" y="69" width="212" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Todo"/>
+                                    <segment title="InProgress"/>
+                                    <segment title="Done"/>
+                                </segments>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vlj-Aa-55G" userLabel="ToDoContainer View">
+                                <rect key="frame" x="0.0" y="105" width="375" height="562"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="vCd-tW-wsK" kind="embed" id="AcG-Ib-OR1"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uv-E5-mDy" userLabel="InProgressContainer View">
+                                <rect key="frame" x="0.0" y="105" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="0W2-DT-Gv4" kind="embed" id="YT8-0W-kKz"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pYY-Gt-3yQ" userLabel="DoneContainer View">
+                                <rect key="frame" x="0.0" y="105" width="375" height="562"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="0nh-xd-4O2" kind="embed" id="Dif-7P-nrI"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pwu-YI-s5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1157.5999999999999" y="-620.23988005997012"/>
+        </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -71,7 +128,7 @@
                                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7PJ-K3-PcR">
                                                             <rect key="frame" x="0.0" y="0.0" width="166" height="2"/>
                                                         </progressView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnb-hc-JZ3">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnb-hc-JZ3">
                                                             <rect key="frame" x="0.0" y="23" width="166" height="123.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -133,7 +190,7 @@
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3Q-R6-Ztx">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3Q-R6-Ztx">
                                                             <rect key="frame" x="0.0" y="223.5" width="166" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -153,9 +210,9 @@
                                             <outlet property="doneLabel" destination="1LW-ci-ede" id="PDS-L3-0gb"/>
                                             <outlet property="inProgressLabel" destination="eLX-Nd-VAT" id="Xis-BU-BcB"/>
                                             <outlet property="nameOfProjectLabel" destination="X3Q-R6-Ztx" id="8vx-Cj-NI2"/>
-                                            <outlet property="progressBar" destination="CDp-PC-5jJ" id="9TT-g3-IaH"/>
-                                            <outlet property="timeLeftToDueDate" destination="CDp-PC-5jJ" id="xuz-cm-i2k"/>
-                                            <outlet property="toDoLabel" destination="Ht5-CR-3Bs" id="mcv-cc-dLs"/>
+                                            <outlet property="progressBar" destination="7PJ-K3-PcR" id="dy7-8x-FZd"/>
+                                            <outlet property="timeLeftToDueDate" destination="rnb-hc-JZ3" id="oBw-kc-Lo6"/>
+                                            <outlet property="toDoLabel" destination="kpZ-5d-r5a" id="bEA-rE-cJ1"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -456,6 +513,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9A4-6t-Yua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1985" y="124"/>
+        </scene>
+        <!--ToDo-->
+        <scene sceneID="32L-EP-3iA">
+            <objects>
+                <viewController title="ToDo" id="vCd-tW-wsK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4ki-rf-5yX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="562"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OLp-DT-fiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2188" y="-1619"/>
+        </scene>
+        <!--inProgress-->
+        <scene sceneID="AR7-V9-WD0">
+            <objects>
+                <viewController title="inProgress" id="0W2-DT-Gv4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tHj-Rq-EqI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eng-fq-Yp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2188" y="-1041"/>
+        </scene>
+        <!--Done-->
+        <scene sceneID="hMn-9b-fua">
+            <objects>
+                <viewController title="Done" id="0nh-xd-4O2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Vq-lb-Sea">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="562"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIo-zx-OyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2188" y="-482"/>
         </scene>
     </scenes>
     <resources>
