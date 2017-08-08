@@ -19,6 +19,7 @@ class DashboardViewController: UIViewController {
     
     //MARK: - Properties
     var projectArray : Results<Project>? = nil
+    var selectedProject : Project? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,20 @@ extension DashboardViewController : UICollectionViewDelegate, UICollectionViewDa
         cell.doneLabel.text = String(numberOfDone!)
         
         return cell
+    }
+    
+    // selected cell
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedProject = self.projectArray?[indexPath.row]
+        performSegue(withIdentifier: "godetail", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "godetail" {
+            let vc = segue.destination as! DetailViewController
+            vc.projectFromDashboard = self.selectedProject
+        }
     }
     
 }

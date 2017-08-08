@@ -9,11 +9,43 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    @IBOutlet weak var projectName: UILabel!
+    
+    @IBOutlet weak var toDoView: UIView!
+    
+    @IBOutlet weak var doneView: UIView!
+    @IBOutlet weak var inProgressView: UIView!
+    
+    
+    var projectFromDashboard : Project? = nil
+    
+    @IBAction func changeContainerViews(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.toDoView.alpha = 1
+                self.inProgressView.alpha = 0
+                self.doneView.alpha = 0
+            })
+        } else if sender.selectedSegmentIndex == 1 {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.toDoView.alpha = 0
+                self.inProgressView.alpha = 1
+                self.doneView.alpha = 0
+            })
+        }else {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.toDoView.alpha = 0
+                self.inProgressView.alpha = 0
+                self.doneView.alpha = 1
+            })
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.projectName.text = self.projectFromDashboard?.name
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +54,6 @@ class DetailViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }
