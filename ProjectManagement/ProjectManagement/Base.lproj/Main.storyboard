@@ -241,9 +241,11 @@
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="0.58960295376986305" colorSpace="calibratedWhite"/>
                                                 </stackView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="0.38888591609863021" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="CDp-PC-5jJ" firstAttribute="top" secondItem="hwV-1t-ozT" secondAttribute="topMargin" constant="1" id="VGC-LS-MjQ"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="CDp-PC-5jJ" secondAttribute="bottom" constant="1" id="aCl-ci-bdu"/>
