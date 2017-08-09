@@ -41,7 +41,7 @@ class Project : Object {
         taskStatusArray = [numberOfToDo,numberOfInProgress,numberofDone]
         return taskStatusArray!
     }
-    // calculate time left to finish
+    // calculate time left to finish based on day and hour
     func timeToFinish() -> [Int]{
         let currentdate = Date()
         guard let finishDate = finishingDate else { return [0,0] }
@@ -53,5 +53,17 @@ class Project : Object {
         }else {
             return [0,0]
         }
+    }
+    
+    // percentage of progress of based on done projects
+    func projectProgress() -> Float{
+        let numberOfTasks = tasks.count
+        var numberofDoneTasks = 0
+        for task in tasks {
+            if task.status == TaskStatus.DONE.rawValue {
+                numberofDoneTasks += 1
+            }
+        }
+        return Float(numberofDoneTasks) / Float(numberOfTasks)
     }
 }
