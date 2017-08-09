@@ -50,8 +50,12 @@ class InProgressTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        cell.textLabel?.text = self.taskToDo[indexPath.row].nameOfTask
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! InProgressTableViewCell
+        let task = self.taskToDo[indexPath.row]
+        let project = self.projectFromDashboardDetail
+        //        cell.textLabel?.text = self.taskToDo[indexPath.row].nameOfTask
+        cell.setLabelAndCell(withTask: task, withProject: project!, index: indexPath)
+        cell.delegate = self
 
         return cell
     }
@@ -102,4 +106,16 @@ class InProgressTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension InProgressTableViewController : ToDoCellDelegate {
+    // method to change the stutus of task form toDo to inProgress
+    func changeStutusOfTask(forProject : Project, forTask : Task) {
+        updateTaskStatus(forTask, forTaskId: forTask.taskId, taskStatus: TaskStatus.DONE.rawValue)
+    }
+    // method to delete toDoTask from taskArray when the changeStutusToInProgress tapped
+    func deleteFromArray(withIndex : IndexPath){
+        self.taskToDo.remove(at: withIndex.row)
+        tableView.reloadData()
+    }
 }
