@@ -10,19 +10,31 @@ import UIKit
 
 class DashboardCollectionViewCell: UICollectionViewCell {
     
+    // index of cell which delete button get taped on it
+    var index : IndexPath!
+    weak var delegate : DashboardCellDelegate?
+    
     @IBOutlet weak var progressBar: UIProgressView!
-    
     @IBOutlet weak var timeLeftToDueDate: UILabel!
-    
     @IBOutlet weak var toDoLabel: UILabel!
-    
     @IBOutlet weak var inProgressLabel: UILabel!
-    
     @IBOutlet weak var doneLabel: UILabel!
-    
     @IBOutlet weak var dayLeft: UILabel!
     @IBOutlet weak var nameOfProjectLabel: UILabel!
     
+    func setIndexPath(withIndex index : IndexPath){
+        self.index = index
+    }
+    
 
+    @IBAction func deleteFromCollectionBtn(_ sender: UIButton) {
+        delegate?.deleteCell(withIndexPath : index)
+    }
 
+}
+
+// protocol to delegate delete method to dashboadViewController
+protocol DashboardCellDelegate : class{
+    // method to delete cell
+    func deleteCell(withIndexPath index : IndexPath)
 }

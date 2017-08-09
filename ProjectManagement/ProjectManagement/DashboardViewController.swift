@@ -37,9 +37,6 @@ class DashboardViewController: UIViewController {
             
         }
     }
-    
-  
-
 
 }
 
@@ -69,6 +66,8 @@ extension DashboardViewController : UICollectionViewDelegate, UICollectionViewDa
         cell.timeLeftToDueDate.text = String((self.projectArray?[indexPath.row].timeToFinish()[0])!)
         cell.dayLeft.text = String((self.projectArray?[indexPath.row].timeToFinish()[1])!)
         cell.progressBar.progress = (self.projectArray?[indexPath.row].projectProgress())!
+        cell.delegate = self
+        cell.setIndexPath(withIndex: indexPath)
         return cell
     }
     
@@ -85,6 +84,18 @@ extension DashboardViewController : UICollectionViewDelegate, UICollectionViewDa
             vc.projectFromDashboard = self.selectedProject
         }
     }
-    
+ 
+}
+
+// extension for conforming to DashboardCellDelegate protocol
+extension DashboardViewController : DashboardCellDelegate {
+    // method for deleting cell from collection view
+    func deleteCell(withIndexPath index : IndexPath){
+        print(index.row)
+        // delete form database
+        deleteFromDatadase((self.projectArray?[index.row])!)
+        // delete from collection view
+        collectionView.deleteItems(at: [index])
+    }
 }
 
