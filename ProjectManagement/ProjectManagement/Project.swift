@@ -42,8 +42,16 @@ class Project : Object {
         return taskStatusArray!
     }
     // calculate time left to finish
-    func dateDuration() -> TimeInterval{
-        var durationDate = DateInterval(start: startingDate!, end: finishingDate!)
-        return durationDate.duration
+    func timeToFinish() -> [Int]{
+        let currentdate = Date()
+        guard let finishDate = finishingDate else { return [0,0] }
+        if finishDate > currentdate {
+        let durationDate = DateInterval(start: currentdate, end: finishDate).duration
+        let day = Int(durationDate) / 43200
+        let hour = (Int(durationDate) - (day * 43200)) / 3600
+        return [day,hour]
+        }else {
+            return [0,0]
+        }
     }
 }
