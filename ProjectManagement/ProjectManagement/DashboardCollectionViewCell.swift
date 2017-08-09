@@ -22,4 +22,7 @@ class DashboardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var dayLeft: UILabel!
     @IBOutlet weak var nameOfProjectLabel: UILabel!
+    
+
+
 }

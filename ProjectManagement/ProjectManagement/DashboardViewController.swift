@@ -68,6 +68,7 @@ extension DashboardViewController : UICollectionViewDelegate, UICollectionViewDa
         cell.doneLabel.text = String(numberOfDone!)
         cell.timeLeftToDueDate.text = String((self.projectArray?[indexPath.row].timeToFinish()[0])!)
         cell.dayLeft.text = String((self.projectArray?[indexPath.row].timeToFinish()[1])!)
+        cell.progressBar.progress = (self.projectArray?[indexPath.row].projectProgress())!
         return cell
     }
     
