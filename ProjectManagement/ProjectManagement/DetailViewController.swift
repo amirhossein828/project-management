@@ -75,7 +75,7 @@ class DetailViewController: UIViewController {
             self.addChildViewController(viewController)
             let viewControllerChild = self.childViewControllers[2] as! DoneTableViewController
             viewControllerChild.projectFromDashboardDetail = self.projectFromDashboard
-//            viewControllerChild.updateTable()
+            viewControllerChild.updateTable()
         }
         
     }
