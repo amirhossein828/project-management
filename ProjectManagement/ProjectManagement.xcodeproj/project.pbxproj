@@ -29,6 +29,7 @@
 		9642C6101F398DBD008A7C6B /* InProgressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9642C60F1F398DBD008A7C6B /* InProgressTableViewController.swift */; };
 		9642C6121F398DCD008A7C6B /* DoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9642C6111F398DCD008A7C6B /* DoneTableViewController.swift */; };
 		9642C6141F3A2B1D008A7C6B /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9642C6131F3A2B1D008A7C6B /* ToDoTableViewCell.swift */; };
+		9642C6581F3A858D008A7C6B /* InProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9642C6571F3A858D008A7C6B /* InProgressTableViewCell.swift */; };
 		BADD82ACD74BDA3BD5D54CD7 /* Pods_ProjectManagementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A56A65FFFFBA1BD64FE7BF /* Pods_ProjectManagementTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		9642C60F1F398DBD008A7C6B /* InProgressTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgressTableViewController.swift; sourceTree = "<group>"; };
 		9642C6111F398DCD008A7C6B /* DoneTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTableViewController.swift; sourceTree = "<group>"; };
 		9642C6131F3A2B1D008A7C6B /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		9642C6571F3A858D008A7C6B /* InProgressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgressTableViewCell.swift; sourceTree = "<group>"; };
 		AA07B47E0D299AA0530396FF /* Pods_ProjectManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E03505E31D5164AC7C53E4BB /* Pods-ProjectManagementTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectManagementTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectManagementTests/Pods-ProjectManagementTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E14203233393318F399EB557 /* Pods-ProjectManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectManagement.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectManagement/Pods-ProjectManagement.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				9642C60F1F398DBD008A7C6B /* InProgressTableViewController.swift */,
 				9642C6111F398DCD008A7C6B /* DoneTableViewController.swift */,
 				9642C6131F3A2B1D008A7C6B /* ToDoTableViewCell.swift */,
+				9642C6571F3A858D008A7C6B /* InProgressTableViewCell.swift */,
 			);
 			name = DetailViewControllers;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				9642C5D61F37ACDE008A7C6B /* Task.swift in Sources */,
 				9642C6121F398DCD008A7C6B /* DoneTableViewController.swift in Sources */,
 				9642C5841F34F431008A7C6B /* DashboardViewController.swift in Sources */,
+				9642C6581F3A858D008A7C6B /* InProgressTableViewCell.swift in Sources */,
 				9642C6071F391ECB008A7C6B /* extentionUI.swift in Sources */,
 				9642C6011F380BFB008A7C6B /* Utils.swift in Sources */,
 				9642C6141F3A2B1D008A7C6B /* ToDoTableViewCell.swift in Sources */,

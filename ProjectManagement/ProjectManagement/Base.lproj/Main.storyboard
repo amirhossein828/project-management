@@ -132,7 +132,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="CDp-PC-5jJ">
-                                                    <rect key="frame" x="8" y="9" width="204.5" height="244"/>
+                                                    <rect key="frame" x="8" y="9" width="166" height="244"/>
                                                     <subviews>
                                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7PJ-K3-PcR">
                                                             <rect key="frame" x="0.0" y="0.0" width="166" height="20"/>
@@ -226,11 +226,20 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3Q-R6-Ztx">
-                                                            <rect key="frame" x="0.0" y="138.5" width="166" height="105.5"/>
+                                                            <rect key="frame" x="0.0" y="138.5" width="166" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ob-kQ-kzD">
+                                                            <rect key="frame" x="0.0" y="180" width="166" height="64"/>
+                                                            <state key="normal" title="delete">
+                                                                <color key="titleColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="deleteFromCollectionBtn:" destination="hwV-1t-ozT" eventType="touchUpInside" id="lwj-KC-d4K"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
