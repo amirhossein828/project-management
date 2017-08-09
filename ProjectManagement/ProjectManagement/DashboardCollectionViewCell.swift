@@ -20,5 +20,6 @@ class DashboardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var doneLabel: UILabel!
     
+    @IBOutlet weak var dayLeft: UILabel!
     @IBOutlet weak var nameOfProjectLabel: UILabel!
 }
