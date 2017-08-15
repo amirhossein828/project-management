@@ -76,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="1157.5999999999999" y="-620.23988005997012"/>
         </scene>
-        <!--Dashboard View Controller-->
+        <!--Projects-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="MainStoryBoard" id="BYZ-38-t0r" customClass="DashboardViewController" customModule="ProjectManagement" customModuleProvider="target" sceneMemberID="viewController">
@@ -284,7 +284,7 @@
                             <constraint firstItem="OEU-o3-LZa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="u2G-6e-zPJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GoQ-BL-PwG"/>
+                    <navigationItem key="navigationItem" title="Projects" id="GoQ-BL-PwG"/>
                     <connections>
                         <outlet property="collectionView" destination="pvo-w5-Wgq" id="XeO-bm-kMZ"/>
                         <segue destination="9I6-xy-yFX" kind="show" identifier="godetail" id="cwK-vV-xnY"/>
@@ -629,7 +629,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jks-k6-yrw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2119" y="-1632"/>
+            <point key="canvasLocation" x="2169" y="-1513"/>
         </scene>
         <!--InProgress-->
         <scene sceneID="3md-T0-IcM">
@@ -677,7 +677,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15E-Hh-4Yk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2171" y="-1044"/>
+            <point key="canvasLocation" x="2169" y="-1011"/>
         </scene>
         <!--Done-->
         <scene sceneID="q9L-bh-I7B">
