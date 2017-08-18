@@ -13,7 +13,7 @@
         <!--Detail View Controller-->
         <scene sceneID="wJo-KJ-P3h">
             <objects>
-                <viewController id="9I6-xy-yFX" customClass="DetailViewController" customModule="ProjectManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="9I6-xy-yFX" customClass="DetailViewController" customModule="ProjectManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WMk-c7-Y2F"/>
                         <viewControllerLayoutGuide type="bottom" id="2Fy-FL-J1T"/>
@@ -65,6 +65,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="XxT-4s-EPJ">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="4FV-ka-VJu">
+                            <connections>
+                                <action selector="updateButton:" destination="9I6-xy-yFX" id="xEu-3L-KjX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="doneView" destination="pYY-Gt-3yQ" id="cOz-AS-yZI"/>
                         <outlet property="inProgressView" destination="9uv-E5-mDy" id="G6x-z9-ExV"/>
@@ -74,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pwu-YI-s5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157.5999999999999" y="-620.23988005997012"/>
+            <point key="canvasLocation" x="2096.8000000000002" y="-620.23988005997012"/>
         </scene>
         <!--Projects-->
         <scene sceneID="tne-QT-ifu">
@@ -287,7 +294,7 @@
                     <navigationItem key="navigationItem" title="Projects" id="GoQ-BL-PwG"/>
                     <connections>
                         <outlet property="collectionView" destination="pvo-w5-Wgq" id="XeO-bm-kMZ"/>
-                        <segue destination="9I6-xy-yFX" kind="show" identifier="godetail" id="cwK-vV-xnY"/>
+                        <segue destination="9I6-xy-yFX" kind="show" identifier="godetail" id="az1-sj-OVg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -297,7 +304,7 @@
         <!--Add Project-->
         <scene sceneID="3mc-H3-beq">
             <objects>
-                <viewController title="Add Project" id="B64-2B-2XT" customClass="AddProjectViewController" customModule="ProjectManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddProject" title="Add Project" id="B64-2B-2XT" customClass="AddProjectViewController" customModule="ProjectManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="akh-zw-3WK"/>
                         <viewControllerLayoutGuide type="bottom" id="coS-qr-Hz0"/>
@@ -684,7 +691,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15E-Hh-4Yk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="-1011"/>
+            <point key="canvasLocation" x="3108" y="-1011.544227886057"/>
         </scene>
         <!--Done-->
         <scene sceneID="q9L-bh-I7B">
@@ -712,10 +719,31 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcT-K1-hu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2170" y="-534"/>
+            <point key="canvasLocation" x="3108" y="-534.78260869565224"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bNx-pW-ZGf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e2i-gG-4Px" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XAD-Bw-a79">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9I6-xy-yFX" kind="relationship" relationship="rootViewController" id="khL-pQ-jy9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fsa-si-sKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1157.5999999999999" y="-620.23988005997012"/>
         </scene>
     </scenes>
     <resources>
         <image name="5382509577_b641221262_b" width="640" height="960"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="az1-sj-OVg"/>
+    </inferredMetricsTieBreakers>
 </document>

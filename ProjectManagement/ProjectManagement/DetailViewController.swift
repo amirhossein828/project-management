@@ -43,6 +43,12 @@ class DetailViewController: UIViewController {
         }
     }
 
+    @IBAction func updateButton(_ sender: UIBarButtonItem) {
+        let updateViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddProject")
+        let objNav = UINavigationController(rootViewController: updateViewController)
+        self.present(objNav, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.projectName.text = self.projectFromDashboard?.name
