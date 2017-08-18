@@ -759,9 +759,12 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Of Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vT3-vh-g45">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Of Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vT3-vh-g45">
                                 <rect key="frame" x="16" y="192" width="108" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="XsO-wW-Nzi"/>
+                                    <constraint firstAttribute="height" constant="21" id="j7w-m9-I74"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -806,7 +809,9 @@
                         <constraints>
                             <constraint firstItem="tar-SB-q7O" firstAttribute="top" secondItem="FUH-fE-T7r" secondAttribute="bottom" id="8W5-b2-F3u"/>
                             <constraint firstItem="oDC-C8-V9h" firstAttribute="top" secondItem="FUH-fE-T7r" secondAttribute="bottom" id="KzY-Lt-vro"/>
+                            <constraint firstItem="vT3-vh-g45" firstAttribute="leading" secondItem="6RR-XH-mpT" secondAttribute="leadingMargin" id="R2e-hk-ERf"/>
                             <constraint firstItem="oDC-C8-V9h" firstAttribute="leading" secondItem="6RR-XH-mpT" secondAttribute="leading" id="Sc8-lD-OjE"/>
+                            <constraint firstItem="vT3-vh-g45" firstAttribute="top" secondItem="FUH-fE-T7r" secondAttribute="bottom" constant="192" id="VDe-XT-XJO"/>
                             <constraint firstAttribute="trailing" secondItem="tar-SB-q7O" secondAttribute="trailing" id="VRA-4G-R7w"/>
                             <constraint firstItem="pq1-3q-fTL" firstAttribute="top" secondItem="oDC-C8-V9h" secondAttribute="bottom" id="Zal-ZJ-Tel"/>
                             <constraint firstAttribute="trailing" secondItem="oDC-C8-V9h" secondAttribute="trailing" id="aoV-mp-fd7"/>
