@@ -12,6 +12,7 @@ class DoneTableViewController: UITableViewController {
     
     var projectFromDashboardDetail : Project? = nil
     var taskToDo = [Task]()
+    var selectedTask : Task? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +52,23 @@ class DoneTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        cell.textLabel?.text = self.taskToDo[indexPath.row].nameOfTask
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! DoneTableViewCell
+        cell.setLabelAndCell(withTask: self.taskToDo[indexPath.row])
+        
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedTask = self.taskToDo[indexPath.row]
+        self.performSegue(withIdentifier: "taskDetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "taskDetail" {
+            let VC = segue.destination as! TaskDetailViewController
+            VC.task = self.selectedTask
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

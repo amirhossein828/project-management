@@ -702,13 +702,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="WTK-bP-Z0l">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="WTK-bP-Z0l" customClass="DoneTableViewCell" customModule="ProjectManagement" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WTK-bP-Z0l" id="NZ3-9g-C6p">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIr-Gs-MaF">
+                                            <rect key="frame" x="21" y="11" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameOfTaskField" destination="aIr-Gs-MaF" id="UHr-pM-HyZ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -716,10 +728,101 @@
                             <outlet property="delegate" destination="gls-Mc-w2A" id="lvZ-Br-suS"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="brx-vw-MKh" kind="show" identifier="taskDetail" id="nkc-hm-qWn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcT-K1-hu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3108" y="-534.78260869565224"/>
+        </scene>
+        <!--Task Detail View Controller-->
+        <scene sceneID="MIo-73-UbQ">
+            <objects>
+                <viewController id="brx-vw-MKh" customClass="TaskDetailViewController" customModule="ProjectManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FUH-fE-T7r"/>
+                        <viewControllerLayoutGuide type="bottom" id="pq1-3q-fTL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6RR-XH-mpT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5382509577_b641221262_b" translatesAutoresizingMaskIntoConstraints="NO" id="tar-SB-q7O">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDC-C8-V9h">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jQl-23-Uos">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Of Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vT3-vh-g45">
+                                <rect key="frame" x="16" y="192" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKq-Wf-UCs">
+                                <rect key="frame" x="152" y="192" width="207" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date of start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XS-mZ-k1n">
+                                <rect key="frame" x="22" y="244" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7J-Kj-FWn">
+                                <rect key="frame" x="152" y="244" width="207" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date of finish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEF-xB-ZzT">
+                                <rect key="frame" x="22" y="294" width="100" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4w5-aS-de4">
+                                <rect key="frame" x="152" y="293" width="207" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tar-SB-q7O" firstAttribute="top" secondItem="FUH-fE-T7r" secondAttribute="bottom" id="8W5-b2-F3u"/>
+                            <constraint firstItem="oDC-C8-V9h" firstAttribute="top" secondItem="FUH-fE-T7r" secondAttribute="bottom" id="KzY-Lt-vro"/>
+                            <constraint firstItem="oDC-C8-V9h" firstAttribute="leading" secondItem="6RR-XH-mpT" secondAttribute="leading" id="Sc8-lD-OjE"/>
+                            <constraint firstAttribute="trailing" secondItem="tar-SB-q7O" secondAttribute="trailing" id="VRA-4G-R7w"/>
+                            <constraint firstItem="pq1-3q-fTL" firstAttribute="top" secondItem="oDC-C8-V9h" secondAttribute="bottom" id="Zal-ZJ-Tel"/>
+                            <constraint firstAttribute="trailing" secondItem="oDC-C8-V9h" secondAttribute="trailing" id="aoV-mp-fd7"/>
+                            <constraint firstItem="tar-SB-q7O" firstAttribute="leading" secondItem="6RR-XH-mpT" secondAttribute="leading" id="ghh-HA-nWd"/>
+                            <constraint firstItem="pq1-3q-fTL" firstAttribute="top" secondItem="tar-SB-q7O" secondAttribute="bottom" id="ngs-6L-0Kb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateOFinishField" destination="4w5-aS-de4" id="GqZ-1e-Gdh"/>
+                        <outlet property="dateOfStartField" destination="M7J-Kj-FWn" id="t3H-Cd-FDM"/>
+                        <outlet property="nameOfTaskField" destination="dKq-Wf-UCs" id="BSf-YQ-48O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dri-lK-9j2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4032.8000000000002" y="-796.55172413793105"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bNx-pW-ZGf">

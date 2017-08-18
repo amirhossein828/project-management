@@ -73,10 +73,15 @@ public func updateData<T:Object>(_ object: T) {
 }
 
 // update task status
-func updateTaskStatus<T:Object>(_ object: T,forTaskId : String,taskStatus : String ) {
+func updateTaskStatus<T:Object>(_ object: T,forTaskId : String,taskStatus : String , startDate : Date?, finishDate : Date?) {
     let realm = try! Realm()
     try! realm.write {
-        realm.create(Task.self, value: ["taskId": forTaskId,"status" : taskStatus ], update: true)
+        if let start = startDate {
+           realm.create(Task.self, value: ["taskId": forTaskId,"status" : taskStatus, "startDate" : start ], update: true)
+        }
+        if let finish = finishDate {
+        realm.create(Task.self, value: ["taskId": forTaskId,"status" : taskStatus, "finishDate" : finish ], update: true)
+        }
     }
 }
 

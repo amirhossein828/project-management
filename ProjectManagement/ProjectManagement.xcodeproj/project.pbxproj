@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		682A98164FFF940F5F525689 /* Pods_ProjectManagementUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DCAFA7F598963D37A1B575 /* Pods_ProjectManagementUITests.framework */; };
 		8C96E22817C4B5429300B607 /* Pods_ProjectManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA07B47E0D299AA0530396FF /* Pods_ProjectManagement.framework */; };
+		962A32FE1F4799BE002818EF /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A32FD1F4799BE002818EF /* DoneTableViewCell.swift */; };
+		962A33001F479E9E002818EF /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A32FF1F479E9E002818EF /* TaskDetailViewController.swift */; };
 		9642C5821F34F431008A7C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9642C5811F34F431008A7C6B /* AppDelegate.swift */; };
 		9642C5841F34F431008A7C6B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9642C5831F34F431008A7C6B /* DashboardViewController.swift */; };
 		9642C5871F34F431008A7C6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9642C5851F34F431008A7C6B /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		21DCAFA7F598963D37A1B575 /* Pods_ProjectManagementUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectManagementUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2713AAF34D1C4ED4B820CFEB /* Pods-ProjectManagementTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectManagementTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectManagementTests/Pods-ProjectManagementTests.release.xcconfig"; sourceTree = "<group>"; };
 		7EED552E42C0ACB79372A0BD /* Pods-ProjectManagementUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectManagementUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectManagementUITests/Pods-ProjectManagementUITests.release.xcconfig"; sourceTree = "<group>"; };
+		962A32FD1F4799BE002818EF /* DoneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
+		962A32FF1F479E9E002818EF /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		9642C57E1F34F431008A7C6B /* ProjectManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9642C5811F34F431008A7C6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9642C5831F34F431008A7C6B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 				9642C6111F398DCD008A7C6B /* DoneTableViewController.swift */,
 				9642C6131F3A2B1D008A7C6B /* ToDoTableViewCell.swift */,
 				9642C6571F3A858D008A7C6B /* InProgressTableViewCell.swift */,
+				962A32FD1F4799BE002818EF /* DoneTableViewCell.swift */,
+				962A32FF1F479E9E002818EF /* TaskDetailViewController.swift */,
 			);
 			name = DetailViewControllers;
 			sourceTree = "<group>";
@@ -539,8 +545,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962A33001F479E9E002818EF /* TaskDetailViewController.swift in Sources */,
 				9642C6091F394541008A7C6B /* DetailViewController.swift in Sources */,
 				9642C60C1F394D66008A7C6B /* ToDoTableViewController.swift in Sources */,
+				962A32FE1F4799BE002818EF /* DoneTableViewCell.swift in Sources */,
 				9642C5FF1F37D851008A7C6B /* AddProjectViewController.swift in Sources */,
 				9642C6031F38185B008A7C6B /* DashboardCollectionViewCell.swift in Sources */,
 				9642C5D61F37ACDE008A7C6B /* Task.swift in Sources */,

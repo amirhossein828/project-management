@@ -117,7 +117,7 @@ class ToDoTableViewController: UITableViewController {
 extension ToDoTableViewController : ToDoCellDelegate {
     // method to change the stutus of task form toDo to inProgress
     func changeStutusOfTask(forProject : Project, forTask : Task) {
-        updateTaskStatus(forTask, forTaskId: forTask.taskId, taskStatus: TaskStatus.INPROGRESS.rawValue)
+        updateTaskStatus(forTask, forTaskId: forTask.taskId, taskStatus: TaskStatus.INPROGRESS.rawValue, startDate: Date(), finishDate: nil)
     }
     // method to delete toDoTask from taskArray when the changeStutusToInProgress tapped
     func deleteFromArray(withIndex : IndexPath){
