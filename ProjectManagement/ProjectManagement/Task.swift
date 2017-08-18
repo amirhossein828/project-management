@@ -12,7 +12,7 @@ import RealmSwift
 class Task : Object{
     dynamic var taskId : String = UUID().uuidString
     dynamic var nameOfTask : String = ""
-     dynamic var status : TaskStatus.RawValue = TaskStatus.TODO.rawValue
+    dynamic var status : TaskStatus.RawValue = TaskStatus.TODO.rawValue
     dynamic var startDate  :Date = Date()
     dynamic var finishDate : Date?
      var duration : Double? {
