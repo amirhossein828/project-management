@@ -38,6 +38,7 @@ class ToDoTableViewController: UITableViewController {
     
     // update table view when this view controller get chosen
     func updateTable(){
+        self.taskToDo.removeAll()
         let tasks = self.projectFromDashboardDetail?.tasks
         for task in tasks! {
             if task.status == TaskStatus.TODO.rawValue {

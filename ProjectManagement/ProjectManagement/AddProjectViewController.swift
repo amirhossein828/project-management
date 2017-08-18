@@ -18,10 +18,12 @@ class AddProjectViewController: UIViewController {
     @IBOutlet weak var finishingdateField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     //MARK: - Properties
-    let project = Project()
+    var project : Project? = nil
     var taskArray = [Task]()
     var datePickerStart : UIDatePicker! = nil
     var datePickerFinish : UIDatePicker! = nil
+    // project which come from update button in detail view controller
+    var projectFromUpdate : Project?
     
     //MARK: - actions
     @IBAction func doneButoon(_ sender: UIBarButtonItem) {
@@ -29,11 +31,17 @@ class AddProjectViewController: UIViewController {
             let startDate = dateFromString(self.startingdateField.text),
             let finishdate = dateFromString(self.finishingdateField.text)
             else { return  }
-        project.name = nameOfproject
-        project.startingDate = startDate
-        project.finishingDate = finishdate
-        saveData(project)
+        if let updateProject = projectFromUpdate {
+            updateProjectInDatabase(project: updateProject,name : nameOfproject, start : startDate,finish : finishdate, task: nil)
+            dismiss(animated: true, completion: nil)
+        } else {
+        
+        project?.name = nameOfproject
+        project?.startingDate = startDate
+        project?.finishingDate = finishdate
+        saveData(project!)
         dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
@@ -48,6 +56,20 @@ class AddProjectViewController: UIViewController {
         // make datepickeres
         datePickerStart = UIDatePicker(textField: startingdateField, target: self, action2: #selector(donePressedStart))
         datePickerFinish = UIDatePicker(textField: finishingdateField, target: self, action2: #selector(donePressedFinish))
+        // if project from update has a value, populate textviews by info
+        updateFieldWithProjectInfo()
+    }
+    
+    // method to update the page with project info, if user comes from update button
+    func updateFieldWithProjectInfo() {
+        if let updateProject = projectFromUpdate {
+            self.nameOfProjectField.text = updateProject.name
+            self.startingdateField.text = dateToString(updateProject.startingDate)
+            self.finishingdateField.text = dateToString(updateProject.finishingDate)
+            for task in updateProject.tasks {
+                self.taskArray.append(task)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,7 +96,12 @@ class AddProjectViewController: UIViewController {
 extension AddProjectViewController : TaskPopUpDelegate {
     func upDateProjectTask(newTask: Task) {
         self.taskArray.append(newTask)
-        self.project.tasks.append(newTask)
+        if let updateProject = projectFromUpdate {
+            updateProjectInDatabase(project: updateProject, name: nil, start: nil, finish: nil, task: newTask)
+        }else {
+            project = Project()
+           self.project?.tasks.append(newTask)
+        }
         self.tableView.reloadData()
     }
     

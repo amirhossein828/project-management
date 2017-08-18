@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     
     //MARK: - Properties
     var projectFromDashboard : Project? = nil
-    
+    var segmentedNumber : Int? = nil
 
     // Action : segmented control to go between container view controllers
     @IBAction func changeContainerViews(_ sender: UISegmentedControl) {
@@ -28,37 +28,63 @@ class DetailViewController: UIViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 self.showViewContainer(withName: self.toDoView)
             })
-            // chow inprogressViewController
+            self.segmentedNumber = 0
+            // show inprogressViewController
         } else if sender.selectedSegmentIndex == 1 {
             inistantiateContainerView(withNumberInArray: 1)
             UIView.animate(withDuration: 0.5, animations: {
                 self.showViewContainer(withName: self.inProgressView)
             })
+            self.segmentedNumber = 1
             // show doneViewController
         }else {
             inistantiateContainerView(withNumberInArray: 2)
             UIView.animate(withDuration: 0.5, animations: {
                 self.showViewContainer(withName: self.doneView)
             })
+            self.segmentedNumber = 2
         }
     }
 
     @IBAction func updateButton(_ sender: UIBarButtonItem) {
-        let updateViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddProject")
+        let updateViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddProject") as! AddProjectViewController
+        updateViewController.projectFromUpdate = projectFromDashboard
         let objNav = UINavigationController(rootViewController: updateViewController)
         self.present(objNav, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViewFields()
+    }
+    
+    // set the fields in the page 
+    func setViewFields() {
         self.projectName.text = self.projectFromDashboard?.name
         // instantiate each view controller
         inistantiateContainerView(withNumberInArray: 0)
+        inistantiateContainerView(withNumberInArray: 1)
+        inistantiateContainerView(withNumberInArray: 2)
+        if let segmentedNo = self.segmentedNumber {
+            if segmentedNo == 0 {
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.showViewContainer(withName: self.toDoView)
+                })
+                
+            }else if segmentedNo == 1 {
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.showViewContainer(withName: self.inProgressView)
+                })
+            }else {
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.showViewContainer(withName: self.doneView)
+                })
+            }
+        } else {
         UIView.animate(withDuration: 0.5, animations: {
             self.showViewContainer(withName: self.toDoView)
         })
-        inistantiateContainerView(withNumberInArray: 1)
-        inistantiateContainerView(withNumberInArray: 2)
+        }
     }
     
     // method to instantiate viewControllers and set their tableview content
@@ -108,6 +134,19 @@ class DetailViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let string = projectFromDashboard?.projectId
+        readData(Project.self, predicate: nil) { (result) in
+            for projectInResult in result {
+                if projectInResult.projectId == self.projectFromDashboard?.projectId {
+                   self.projectFromDashboard = projectInResult
+                    setViewFields()
+                }
+            }
+            
+        }
     }
     
 

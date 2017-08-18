@@ -10,17 +10,11 @@ import Foundation
 import RealmSwift
 
 
-
-
-
 // MARK: - Save Data
-
-
 public func saveData<T:Object>(_ object: T) {
     let realm = try! Realm()
     try! realm.write {
-        realm.add(object)
-        
+        realm.add(object, update: true)
     }
 }
 
@@ -67,11 +61,8 @@ public func deleteFromDatadase<T:Object>(_ model: T) {
 public func deleteAll() {
     let realm = try! Realm()
     try! realm.write {
-        
         realm.deleteAll()
-        
     }
-    
 }
 
 // update realm database
@@ -81,18 +72,30 @@ public func updateData<T:Object>(_ object: T) {
     }
 }
 
-// update project name
-func updateProject<T:Object>(_ object: T,forProjectId : String,projectName : String ) {
-    let realm = try! Realm()
-    try! realm.write {
-        realm.create(Project.self, value: ["projectId":forProjectId,"name" : projectName ], update: true)
-    }
-}
-
 // update task status
 func updateTaskStatus<T:Object>(_ object: T,forTaskId : String,taskStatus : String ) {
     let realm = try! Realm()
     try! realm.write {
         realm.create(Task.self, value: ["taskId": forTaskId,"status" : taskStatus ], update: true)
+    }
+}
+
+// update project
+func updateProjectInDatabase(project: Project,name : String?, start : Date?,finish : Date?, task : Task?) {
+    let realm = try! Realm()
+    try! realm.write {
+        if let name = name {
+            project.name = name
+        }
+        if let start = start {
+            project.startingDate = start
+        }
+        if let finish = finish {
+             project.finishingDate = finish
+        }
+        if let task = task {
+            project.tasks.append(task)
+        }
+        realm.add(project, update: true)
     }
 }
