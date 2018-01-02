@@ -7,6 +7,7 @@ target 'ProjectManagement' do
 
   # Pods for ProjectManagement
     pod 'RealmSwift'
+    pod 'CircleProgressView', '~> 1.0'
   target 'ProjectManagementTests' do
     inherit! :search_paths
     # Pods for testing
