@@ -8,7 +8,7 @@
 
 import UIKit
 import RealmSwift
-
+import EventKit
 
 class AddProjectViewController: UIViewController {
     
@@ -24,13 +24,19 @@ class AddProjectViewController: UIViewController {
     var datePickerFinish : UIDatePicker! = nil
     // project which come from update button in detail view controller
     var projectFromUpdate : Project?
+    var nameOfproject : String?
+    var startDate : Date?
+    var finishdate: Date?
     
     //MARK: - actions
     @IBAction func doneButoon(_ sender: UIBarButtonItem) {
-        guard let nameOfproject = self.nameOfProjectField.text,
-            let startDate = dateFromString(self.startingdateField.text),
-            let finishdate = dateFromString(self.finishingdateField.text)
+        guard let  nameOfproject = self.nameOfProjectField.text,
+             let startDate = dateFromString(self.startingdateField.text),
+             let finishdate = dateFromString(self.finishingdateField.text)
             else { return  }
+        self.nameOfproject = nameOfproject
+        self.startDate = startDate
+        self.finishdate = finishdate
         if let updateProject = projectFromUpdate {
             updateProjectInDatabase(project: updateProject,name : nameOfproject, start : startDate,finish : finishdate, task: nil)
             dismiss(animated: true, completion: nil)
@@ -40,7 +46,10 @@ class AddProjectViewController: UIViewController {
         project?.startingDate = startDate
         project?.finishingDate = finishdate
         saveData(project!)
-        dismiss(animated: true, completion: nil)
+        saveInCalender {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
         }
     }
     
@@ -59,6 +68,35 @@ class AddProjectViewController: UIViewController {
         // if project from update has a value, populate textviews by info
         updateFieldWithProjectInfo()
     }
+    
+    // Save the event in calender
+    fileprivate func saveInCalender(completion : @escaping () -> Void) {
+        let eventStore = EKEventStore()
+        eventStore.requestAccess(to: .event) { (granted, error) in
+            let isAccepted = granted && (error == nil)
+            if isAccepted {
+                let event = EKEvent(eventStore: eventStore)
+                event.title = self.nameOfproject!
+                event.notes = self.nameOfproject
+                event.startDate = self.startDate!
+                event.endDate = self.finishdate!
+                event.calendar = eventStore.defaultCalendarForNewEvents
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                    print("-----------------------------------")
+                    print("event saved")
+                }catch {
+                    print(error)
+                }
+                
+            }else {
+                print(error)
+            }
+            completion()
+        }
+    }
+    
+
     
     // method to update the page with project info, if user comes from update button
     func updateFieldWithProjectInfo() {
