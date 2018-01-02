@@ -60,7 +60,8 @@ class DetailViewController: UIViewController {
     
     // set the fields in the page 
     func setViewFields() {
-        self.projectName.text = self.projectFromDashboard?.name
+        self.navigationItem.title = self.projectFromDashboard?.name
+//        self.projectName.text = self.projectFromDashboard?.name
         // instantiate each view controller
         inistantiateContainerView(withNumberInArray: 0)
         inistantiateContainerView(withNumberInArray: 1)

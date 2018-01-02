@@ -22,48 +22,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Qs-1D-Wtm">
-                                <rect key="frame" x="91" y="120" width="212" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vlj-Aa-55G" userLabel="ToDoContainer View">
+                                <rect key="frame" x="0.0" y="279" width="375" height="388"/>
+                                <connections>
+                                    <segue destination="j1V-gY-DNm" kind="embed" id="sgL-Nr-XAS"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uv-E5-mDy" userLabel="InProgressContainer View">
+                                <rect key="frame" x="0.0" y="279" width="375" height="380"/>
+                                <connections>
+                                    <segue destination="Qib-Vo-Lhe" kind="embed" id="v5I-s6-2dh"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYY-Gt-3yQ" userLabel="DoneContainer View">
+                                <rect key="frame" x="0.0" y="279" width="375" height="388"/>
+                                <connections>
+                                    <segue destination="gls-Mc-w2A" kind="embed" id="9bg-sK-ajq"/>
+                                </connections>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Qs-1D-Wtm">
+                                <rect key="frame" x="0.0" y="251" width="375" height="29"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
                                     <segment title="Todo"/>
                                     <segment title="InProgress"/>
                                     <segment title="Done"/>
                                 </segments>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="changeContainerViews:" destination="9I6-xy-yFX" eventType="valueChanged" id="9I2-os-phS"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vlj-Aa-55G" userLabel="ToDoContainer View">
-                                <rect key="frame" x="0.0" y="192" width="375" height="475"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="j1V-gY-DNm" kind="embed" id="sgL-Nr-XAS"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uv-E5-mDy" userLabel="InProgressContainer View">
-                                <rect key="frame" x="0.0" y="192" width="375" height="467"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="Qib-Vo-Lhe" kind="embed" id="v5I-s6-2dh"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pYY-Gt-3yQ" userLabel="DoneContainer View">
-                                <rect key="frame" x="0.0" y="192" width="375" height="475"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="gls-Mc-w2A" kind="embed" id="9bg-sK-ajq"/>
-                                </connections>
-                            </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mj-i0-4M9">
-                                <rect key="frame" x="166" y="72" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="project-management" translatesAutoresizingMaskIntoConstraints="NO" id="LCx-Oi-JVK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="187"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vlj-Aa-55G" firstAttribute="leading" secondItem="9uv-E5-mDy" secondAttribute="leading" id="1VM-ym-ZW1"/>
+                            <constraint firstAttribute="trailing" secondItem="LCx-Oi-JVK" secondAttribute="trailing" id="1ed-7X-QZW"/>
+                            <constraint firstItem="2Fy-FL-J1T" firstAttribute="top" secondItem="9uv-E5-mDy" secondAttribute="bottom" constant="8" symbolic="YES" id="478-pc-kbV"/>
+                            <constraint firstItem="vlj-Aa-55G" firstAttribute="top" secondItem="9uv-E5-mDy" secondAttribute="top" id="AAO-n6-8eW"/>
+                            <constraint firstAttribute="trailing" secondItem="pYY-Gt-3yQ" secondAttribute="trailing" id="BOj-NC-UC6"/>
+                            <constraint firstItem="vlj-Aa-55G" firstAttribute="trailing" secondItem="9uv-E5-mDy" secondAttribute="trailing" id="DqJ-t5-yEG"/>
+                            <constraint firstItem="6Qs-1D-Wtm" firstAttribute="leading" secondItem="GgF-jA-xur" secondAttribute="leading" id="E9b-My-LKW"/>
+                            <constraint firstItem="vlj-Aa-55G" firstAttribute="trailing" secondItem="pYY-Gt-3yQ" secondAttribute="trailing" id="M5l-tk-iGa"/>
+                            <constraint firstItem="vlj-Aa-55G" firstAttribute="leading" secondItem="pYY-Gt-3yQ" secondAttribute="leading" id="OsS-dM-WaP"/>
+                            <constraint firstItem="vlj-Aa-55G" firstAttribute="top" secondItem="pYY-Gt-3yQ" secondAttribute="top" id="Sj2-p4-HCM"/>
+                            <constraint firstItem="vlj-Aa-55G" firstAttribute="top" secondItem="GgF-jA-xur" secondAttribute="top" constant="279" id="k3K-WI-6ab"/>
+                            <constraint firstAttribute="trailing" secondItem="6Qs-1D-Wtm" secondAttribute="trailing" id="m9E-lv-96M"/>
+                            <constraint firstItem="vlj-Aa-55G" firstAttribute="top" secondItem="6Qs-1D-Wtm" secondAttribute="bottom" id="mIU-hs-1Sv"/>
+                            <constraint firstItem="vlj-Aa-55G" firstAttribute="bottom" secondItem="2Fy-FL-J1T" secondAttribute="top" id="njt-tl-aWX"/>
+                            <constraint firstItem="LCx-Oi-JVK" firstAttribute="leading" secondItem="GgF-jA-xur" secondAttribute="leading" id="o07-qy-Qst"/>
+                            <constraint firstItem="6Qs-1D-Wtm" firstAttribute="top" secondItem="LCx-Oi-JVK" secondAttribute="bottom" id="qpU-g6-NoR"/>
+                            <constraint firstItem="pYY-Gt-3yQ" firstAttribute="leading" secondItem="GgF-jA-xur" secondAttribute="leading" id="xee-M7-jka"/>
+                            <constraint firstItem="2Fy-FL-J1T" firstAttribute="top" secondItem="pYY-Gt-3yQ" secondAttribute="bottom" id="z94-gR-uvP"/>
+                            <constraint firstItem="LCx-Oi-JVK" firstAttribute="top" secondItem="WMk-c7-Y2F" secondAttribute="bottom" id="zwu-nR-QcR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XxT-4s-EPJ">
                         <barButtonItem key="rightBarButtonItem" title="Update" id="4FV-ka-VJu">
@@ -75,7 +90,6 @@
                     <connections>
                         <outlet property="doneView" destination="pYY-Gt-3yQ" id="cOz-AS-yZI"/>
                         <outlet property="inProgressView" destination="9uv-E5-mDy" id="G6x-z9-ExV"/>
-                        <outlet property="projectName" destination="0mj-i0-4M9" id="afh-g0-1dR"/>
                         <outlet property="toDoView" destination="vlj-Aa-55G" id="f0n-gL-iDu"/>
                     </connections>
                 </viewController>
@@ -282,7 +296,7 @@
                                                 </view>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" white="0.33333333329999998" alpha="0.38888591609863021" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.37384952910958902" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="CKd-qO-FdO" firstAttribute="top" secondItem="hwV-1t-ozT" secondAttribute="topMargin" constant="1" id="10w-iK-Qe7"/>
                                             <constraint firstItem="X3Q-R6-Ztx" firstAttribute="centerX" secondItem="hwV-1t-ozT" secondAttribute="centerX" id="A9q-xw-mGm"/>
@@ -639,9 +653,9 @@
             <objects>
                 <tableViewController storyboardIdentifier="ToDoViewController" title="ToDo" id="j1V-gY-DNm" customClass="ToDoTableViewController" customModule="ProjectManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zeq-j3-NNz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="388"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="bFV-bz-QqQ" customClass="ToDoTableViewCell" customModule="ProjectManagement" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -659,14 +673,15 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aef-Hx-c64">
-                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="8" y="11" width="201" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="goInProgressButton" destination="a1e-F5-03e" id="89M-tr-NMQ"/>
                                     <outlet property="nameOfTaskLabel" destination="Aef-Hx-c64" id="JWp-BO-Xab"/>
@@ -681,16 +696,16 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jks-k6-yrw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3108" y="-1536"/>
+            <point key="canvasLocation" x="3108" y="-1536.4317841079462"/>
         </scene>
         <!--InProgress-->
         <scene sceneID="3md-T0-IcM">
             <objects>
                 <tableViewController storyboardIdentifier="InProgressViewController" title="InProgress" id="Qib-Vo-Lhe" customClass="InProgressTableViewController" customModule="ProjectManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="N1L-uF-ygc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="9CA-sH-dfc" customClass="InProgressTableViewCell" customModule="ProjectManagement" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -708,14 +723,15 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTL-oo-YS4">
-                                            <rect key="frame" x="19" y="8" width="42" height="21"/>
+                                            <rect key="frame" x="19" y="8" width="190" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="nameOfInProgressTsksLabel" destination="BTL-oo-YS4" id="WMZ-gJ-9cE"/>
                                 </connections>
@@ -729,16 +745,16 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15E-Hh-4Yk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3108" y="-1011.544227886057"/>
+            <point key="canvasLocation" x="3108" y="-1011.9940029985008"/>
         </scene>
         <!--Done-->
         <scene sceneID="q9L-bh-I7B">
             <objects>
                 <tableViewController storyboardIdentifier="DoneViewController" title="Done" id="gls-Mc-w2A" customClass="DoneTableViewController" customModule="ProjectManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VoN-11-bgG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="388"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="WTK-bP-Z0l" customClass="DoneTableViewCell" customModule="ProjectManagement" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -748,14 +764,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIr-Gs-MaF">
-                                            <rect key="frame" x="21" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="21" y="11" width="179" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="nameOfTaskField" destination="aIr-Gs-MaF" id="UHr-pM-HyZ"/>
                                 </connections>
@@ -772,7 +789,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcT-K1-hu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3108" y="-534.78260869565224"/>
+            <point key="canvasLocation" x="3108" y="-535.23238380809596"/>
         </scene>
         <!--Task Detail View Controller-->
         <scene sceneID="MIo-73-UbQ">
@@ -783,16 +800,16 @@
                         <viewControllerLayoutGuide type="bottom" id="pq1-3q-fTL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6RR-XH-mpT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="388"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5382509577_b641221262_b" translatesAutoresizingMaskIntoConstraints="NO" id="tar-SB-q7O">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="388"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDC-C8-V9h">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="388"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jQl-23-Uos">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="388"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="light"/>
@@ -889,6 +906,7 @@
     <resources>
         <image name="5382509577_b641221262_b" width="640" height="960"/>
         <image name="ic_delete_2x" width="48" height="48"/>
+        <image name="project-management" width="1200" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="az1-sj-OVg"/>

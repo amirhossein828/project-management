@@ -28,6 +28,10 @@ class DashboardCollectionViewCell: UICollectionViewCell {
         self.index = index
     }
     
+    override func awakeFromNib() {
+        self.layer.cornerRadius = 15
+    }
+    
 
     @IBAction func deleteFromCollectionBtn(_ sender: UIButton) {
         delegate?.deleteCell(withIndexPath : index)
