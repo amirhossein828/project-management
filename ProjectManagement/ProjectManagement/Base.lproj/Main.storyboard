@@ -302,6 +302,7 @@
                                             <outlet property="doneLabel" destination="1LW-ci-ede" id="PDS-L3-0gb"/>
                                             <outlet property="inProgressLabel" destination="eLX-Nd-VAT" id="Xis-BU-BcB"/>
                                             <outlet property="nameOfProjectLabel" destination="X3Q-R6-Ztx" id="8vx-Cj-NI2"/>
+                                            <outlet property="progressBar" destination="CKd-qO-FdO" id="jgW-xR-gJS"/>
                                             <outlet property="timeLeftToDueDate" destination="rnb-hc-JZ3" id="oBw-kc-Lo6"/>
                                             <outlet property="toDoLabel" destination="kpZ-5d-r5a" id="bEA-rE-cJ1"/>
                                         </connections>

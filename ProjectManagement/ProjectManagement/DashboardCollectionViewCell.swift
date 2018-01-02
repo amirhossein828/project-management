@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CircleProgressView
 
 class DashboardCollectionViewCell: UICollectionViewCell {
     
@@ -14,7 +15,8 @@ class DashboardCollectionViewCell: UICollectionViewCell {
     var index : IndexPath!
     weak var delegate : DashboardCellDelegate?
     
-    @IBOutlet weak var progressBar: UIProgressView!
+    
+    @IBOutlet weak var progressBar: CircleProgressView!
     @IBOutlet weak var timeLeftToDueDate: UILabel!
     @IBOutlet weak var toDoLabel: UILabel!
     @IBOutlet weak var inProgressLabel: UILabel!
