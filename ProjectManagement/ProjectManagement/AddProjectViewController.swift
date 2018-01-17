@@ -67,6 +67,7 @@ class AddProjectViewController: UIViewController {
         datePickerFinish = UIDatePicker(textField: finishingdateField, target: self, action2: #selector(donePressedFinish))
         // if project from update has a value, populate textviews by info
         updateFieldWithProjectInfo()
+        hideKeyboardWhenTappedAround()
     }
     
     // Save the event in calender
