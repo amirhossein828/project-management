@@ -21,6 +21,8 @@ class PopUpViewController: UIViewController {
         super.viewDidLoad()
         // make the corner of view radius
         self.popUpView.layer.cornerRadius = 20
+        hideKeyboardWhenTappedAround()
+
 
     }
 
