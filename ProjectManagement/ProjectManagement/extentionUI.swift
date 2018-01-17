@@ -29,4 +29,23 @@ extension UIDatePicker {
 }
 
 }
+
+/**
+ * Extends UIViewController to hide Keyboard When Tapped Around.
+ *
+ * - author: Amirhossein
+ *
+ */
+extension UIViewController {
+    /// hide Keyboard When user Tapped Around of keyboard
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
     
